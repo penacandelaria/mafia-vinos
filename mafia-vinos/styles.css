@@ -1,0 +1,151 @@
+@font-face {
+  font-family: "MafiaLogo";
+  src: url("./fonts/mafia-logo.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #111;
+  background: #fff;
+}
+
+.wrap{
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+.top{
+  border-bottom: 1px solid #e6e6e6;
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+}
+
+.top__inner{
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 48px 18px 18px; /* ↑ más aire arriba */
+}
+
+/* LOGO */
+.brand{
+  font-family: "MafiaLogo", sans-serif;
+  font-size: 32px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+/* TÍTULO */
+.subtitle{
+  font-family: "bebas-neue-pro", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.020em;
+  font-size: 28px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+/* ACTUALIZADO */
+.meta{
+  font-family: "bebas-neue-pro-semiexpanded", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  color: #6b6b6b;
+}
+
+.carta{ padding: 18px 0 40px; }
+
+.section{ margin-top: 26px; }
+
+/* CATEGORÍA DEL VINO */
+.section__title{
+  font-family: "bebas-neue-pro", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 14px;
+  color: #6b6b6b;
+  margin: 28px 0 10px;
+}
+
+.item{
+  padding: 12px 0;
+  border-top: 1px solid #e6e6e6;
+}
+
+/* Reemplazo de grid por flex (más compatible) */
+.row{
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+}
+
+/* NOMBRE VINO */
+.name{
+  font-family: "bebas-neue-pro", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.025em;
+  line-height: 1.2;
+}
+
+/* PRECIO VINO */
+.price{
+  font-family: "bebas-neue-pro", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+  letter-spacing: 0.025em;
+  white-space: nowrap;
+}
+
+/* DETALLES VINO */
+.sub{
+  font-family: "bebas-neue-pro-semiexpanded", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 14px;
+  color: #6b6b6b;
+  margin-top: 4px;
+}
+
+.note{
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.loading{ color: #6b6b6b; padding: 24px 0; }
+
+.foot{
+  border-top: 1px solid #e6e6e6;
+  padding: 18px 0;
+}
+
+.foot__note{ color: #6b6b6b; font-size: 12px; }
+
+@media (min-width: 768px){
+  .subtitle{ font-size: 26px; }
+  .name, .price{ font-size: 16px; }
+}
