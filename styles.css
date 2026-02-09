@@ -6,6 +6,7 @@
   font-display: swap;
 }
 
+/* RESET */
 * {
   box-sizing: border-box;
 }
@@ -26,11 +27,11 @@ body {
 
 /* HEADER */
 .top {
-  border-bottom: 1px solid #e6e6e6;
   position: sticky;
   top: 0;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .top__inner {
@@ -42,9 +43,11 @@ body {
 /* LOGO */
 .brand {
   font-family: "MafiaLogo", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  text-transform: uppercase;
   font-size: 36px;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
   text-align: center;
   margin-bottom: 10px;
 }
@@ -55,10 +58,10 @@ body {
   font-weight: 300;
   font-style: normal;
   text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 0.022em;
   font-size: 30px;
   line-height: 1.1;
+  letter-spacing: 0.022em;
+  text-align: center;
   margin-bottom: 30px;
 }
 
@@ -67,8 +70,8 @@ body {
   font-family: "bebas-neue-pro-semiexpanded", sans-serif;
   font-weight: 500;
   font-style: normal;
-  letter-spacing: 0.08em;
   font-size: 14px;
+  letter-spacing: 0.08em;
   color: #6b6b6b;
   text-align: center;
 }
@@ -78,6 +81,7 @@ body {
   padding: 18px 0 40px;
 }
 
+/* SECCIÓN */
 .section {
   margin-top: 26px;
 }
@@ -88,8 +92,8 @@ body {
   font-weight: 300;
   font-style: normal;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
   font-size: 16px;
+  letter-spacing: 0.14em;
   color: #6b6b6b;
   margin: 28px 0 10px;
 }
@@ -104,8 +108,8 @@ body {
 .row {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
   align-items: baseline;
+  gap: 12px;
 }
 
 /* NOMBRE */
@@ -115,8 +119,8 @@ body {
   font-style: normal;
   text-transform: uppercase;
   font-size: 18px;
-  letter-spacing: 0.026em;
   line-height: 1.2;
+  letter-spacing: 0.026em;
 }
 
 /* PRECIO */
@@ -134,17 +138,17 @@ body {
   font-family: "bebas-neue-pro-semiexpanded", sans-serif;
   font-weight: 300;
   font-style: normal;
-  letter-spacing: 0.02em;
   font-size: 15px;
+  letter-spacing: 0.02em;
   color: #6b6b6b;
   margin-top: 4px;
 }
 
 /* NOTA */
 .note {
-  margin-top: 6px;
   font-size: 15px;
   line-height: 1.35;
+  margin-top: 6px;
 }
 
 /* LOADING */
@@ -156,5 +160,11 @@ body {
 /* FOOTER */
 .foot {
   border-top: 1px solid #e6e6e6;
-  paddi
+  padding: 18px 0;
+}
 
+.foot__note {
+  font-size: 12px;
+  color: #6b6b6b;
+  text-align: center;
+}
