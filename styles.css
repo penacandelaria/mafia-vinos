@@ -6,7 +6,6 @@
   font-display: swap;
 }
 
-/* RESET BÁSICO */
 * {
   box-sizing: border-box;
 }
@@ -43,11 +42,11 @@ body {
 /* LOGO */
 .brand {
   font-family: "MafiaLogo", sans-serif;
-  font-size: 32px;
+  font-size: 36px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 /* TÍTULO */
@@ -57,10 +56,10 @@ body {
   font-style: normal;
   text-transform: uppercase;
   text-align: center;
-  letter-spacing: 0.02em;
-  font-size: 28px;
+  letter-spacing: 0.022em;
+  font-size: 30px;
   line-height: 1.1;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 /* META */
@@ -69,7 +68,7 @@ body {
   font-weight: 500;
   font-style: normal;
   letter-spacing: 0.08em;
-  font-size: 12px;
+  font-size: 14px;
   color: #6b6b6b;
   text-align: center;
 }
@@ -89,8 +88,8 @@ body {
   font-weight: 300;
   font-style: normal;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 14px;
+  letter-spacing: 0.14em;
+  font-size: 16px;
   color: #6b6b6b;
   margin: 28px 0 10px;
 }
@@ -115,8 +114,8 @@ body {
   font-weight: 600;
   font-style: normal;
   text-transform: uppercase;
-  font-size: 16px;
-  letter-spacing: 0.025em;
+  font-size: 18px;
+  letter-spacing: 0.026em;
   line-height: 1.2;
 }
 
@@ -125,8 +124,8 @@ body {
   font-family: "bebas-neue-pro", sans-serif;
   font-weight: 600;
   font-style: normal;
-  font-size: 16px;
-  letter-spacing: 0.025em;
+  font-size: 18px;
+  letter-spacing: 0.026em;
   white-space: nowrap;
 }
 
@@ -136,7 +135,7 @@ body {
   font-weight: 300;
   font-style: normal;
   letter-spacing: 0.02em;
-  font-size: 14px;
+  font-size: 15px;
   color: #6b6b6b;
   margin-top: 4px;
 }
@@ -144,7 +143,7 @@ body {
 /* NOTA */
 .note {
   margin-top: 6px;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.35;
 }
 
