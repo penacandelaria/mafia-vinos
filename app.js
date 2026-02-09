@@ -85,8 +85,6 @@ function main(){
   var meta = document.getElementById("meta");
   meta.textContent = "Cargando desde planilla…";
 
-  // Si estás abriendo como file:// en Safari, esto puede bloquearse.
-  // Igual lo dejamos: cuando lo subas a una URL https (Netlify), funciona.
   fetch(SHEET_CSV_URL, { cache: "no-store" })
     .then(function(res){ return res.text(); })
     .then(function(csv){
