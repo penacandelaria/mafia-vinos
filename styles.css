@@ -88,7 +88,6 @@ body {
   margin-top: 42px;
 }
 
-/* (lo vamos a usar cuando sumemos "BOTELLA / COPA" desde el JS) */
 .section__header {
   display: flex;
   justify-content: space-between;
@@ -96,6 +95,7 @@ body {
   gap: 12px;
 }
 
+/* RÓTULO CATEGORÍA */
 .section__title {
   font-family: "bebas-neue-pro", sans-serif;
   font-weight: 300;
@@ -107,13 +107,13 @@ body {
   margin: 0 0 12px;
 }
 
-/* placeholder para el rótulo derecho */
+/* RÓTULO PRECIOS */
 .section__prices {
   font-family: "bebas-neue-pro-semiexpanded", sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: 12px;
-  letter-spacing: 0.14em;
+  font-size: 16px;
+  letter-spacing: 0.10em;
   color: #9a9a9a;
   white-space: nowrap;
   margin: 0 0 12px;
@@ -133,7 +133,7 @@ body {
   gap: 12px;
 }
 
-/* NOMBRE */
+/* NOMBRE VINO */
 .name {
   font-family: "bebas-neue-pro", sans-serif;
   font-weight: 600;
@@ -144,7 +144,7 @@ body {
   letter-spacing: 0.024em;
 }
 
-/* PRECIO */
+/* PRECIO VINO */
 .price {
   font-family: "bebas-neue-pro", sans-serif;
   font-weight: 600;
