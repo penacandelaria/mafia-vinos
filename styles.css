@@ -110,12 +110,12 @@ body {
 
 /* RÓTULO PRECIOS */
 .section__prices {
-  font-family: "bebas-neue-pro-semiexpanded", sans-serif;
+  font-family: "bebas-neue-pro", sans-serif;
   font-weight: 300;
   font-style: normal;
-  font-size: 16px;
+  font-size: 20px;
   letter-spacing: 0.10em;
-  color: #9a9a9a;
+  color: #4e1f1f;
   white-space: nowrap;
   margin: 0 0 12px;
 }
