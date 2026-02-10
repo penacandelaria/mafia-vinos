@@ -39,7 +39,7 @@ body {
 .top__inner {
   max-width: 820px;
   margin: 0 auto;
-  padding: 58px 18px 20px;
+  padding: 60px 18px 20px;
 }
 
 /* LOGO */
@@ -86,7 +86,7 @@ body {
 
 /* SECCIÓN */
 .section {
-  margin-top: 42px;
+  margin-top: 45px;
 }
 
 .section__header {
