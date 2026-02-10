@@ -19,12 +19,25 @@ function parseCSV(text){
 
   for (var i = 0; i < text.length; i++){
     var c = text[i];
-    var next = text[i+1];
+    var next = text[i + 1];
 
-    if (c === '"' && inQuotes && next === '"'){ cur += '"'; i++; continue; }
-    if (c === '"'){ inQuotes = !inQuotes; continue; }
+    if (c === '"' && inQuotes && next === '"'){
+      cur += '"';
+      i++;
+      continue;
+    }
 
-    if (c === "," && !inQuotes){ row.push(cur); cur = ""; continue; }
+    if (c === '"'){
+      inQuotes = !inQuotes;
+      continue;
+    }
+
+    if (c === "," && !inQuotes){
+      row.push(cur);
+      cur = "";
+      continue;
+    }
+
     if ((c === "\n" || c === "\r") && !inQuotes){
       if (cur.length || row.length){
         row.push(cur);
@@ -34,9 +47,15 @@ function parseCSV(text){
       }
       continue;
     }
+
     cur += c;
   }
-  if (cur.length || row.length){ row.push(cur); rows.push(row); }
+
+  if (cur.length || row.length){
+    row.push(cur);
+    rows.push(row);
+  }
+
   return rows;
 }
 
@@ -51,6 +70,7 @@ function toMoney(val){
   return "$ " + Number(n).toLocaleString("es-AR");
 }
 
+// --- Render ---
 function render(sections){
   var root = document.getElementById("carta");
   root.innerHTML = "";
@@ -58,8 +78,13 @@ function render(sections){
   for (var sIdx = 0; sIdx < sections.length; sIdx++){
     var sec = sections[sIdx];
 
-    var s = el("section", "section");
-    s.appendChild(el("h2", "section__title", sec.categoria));
+    var section = el("section", "section");
+
+    // Header de sección: categoría + aclaración de precios
+    var header = el("div", "section__header");
+    header.appendChild(el("h2", "section__title", sec.categoria));
+    header.appendChild(el("div", "section__prices", "BOTELLA  |  COPA"));
+    section.appendChild(header);
 
     for (var i = 0; i < sec.items.length; i++){
       var it = sec.items[i];
@@ -74,13 +99,14 @@ function render(sections){
       if (it.sub) item.appendChild(el("div", "sub", it.sub));
       if (it.nota) item.appendChild(el("div", "note", it.nota));
 
-      s.appendChild(item);
+      section.appendChild(item);
     }
 
-    root.appendChild(s);
+    root.appendChild(section);
   }
 }
 
+// --- Main ---
 function main(){
   var meta = document.getElementById("meta");
   meta.textContent = "Cargando desde planilla…";
@@ -93,39 +119,44 @@ function main(){
         throw new Error("CSV vacío o inválido");
       }
 
-      // headers = primera fila
+      // Headers
       var headers = [];
       for (var h = 0; h < rows[0].length; h++){
         headers.push(norm(rows[0][h]));
       }
 
-      // data = filas restantes
+      // Data
       var data = [];
       for (var r = 1; r < rows.length; r++){
         var rr = rows[r];
         var hasAny = false;
+
         for (var k = 0; k < rr.length; k++){
-          if (norm(rr[k]) !== ""){ hasAny = true; break; }
+          if (norm(rr[k]) !== ""){
+            hasAny = true;
+            break;
+          }
         }
+
         if (!hasAny) continue;
 
         var obj = {};
         for (var c = 0; c < headers.length; c++){
           obj[headers[c]] = norm(rr[c]);
         }
+
         data.push(obj);
       }
 
       // Filtrar disponibles
       var visibles = [];
       for (var j = 0; j < data.length; j++){
-        var x = data[j];
-        if (norm(x["Disponible"]).toUpperCase() !== "NO"){
-          visibles.push(x);
+        if (norm(data[j]["Disponible"]).toUpperCase() !== "NO"){
+          visibles.push(data[j]);
         }
       }
 
-      // Ordenar por Categoría + Orden
+      // Ordenar por categoría + orden
       visibles.sort(function(a, b){
         var ca = norm(a["Categoría"]);
         var cb = norm(b["Categoría"]);
@@ -136,29 +167,24 @@ function main(){
         return oa - ob;
       });
 
-      // Agrupar por categoría (map simple)
+      // Agrupar por categoría
       var cats = [];
-      var catItems = {}; // {cat: [items]}
+      var catItems = {};
 
       for (var t = 0; t < visibles.length; t++){
         var v = visibles[t];
         var cat = norm(v["Categoría"]) || "Otros";
+
         if (!catItems[cat]){
           catItems[cat] = [];
           cats.push(cat);
         }
 
-        var productor = norm(v["Productor"]);
-        var region = norm(v["Región"]);
-        var uva = norm(v["Uva"]);
-        var cosecha = norm(v["Cosecha"]);
-        var nota = norm(v["Nota corta"]);
-
         var subParts = [];
-        if (productor) subParts.push(productor);
-        if (region) subParts.push(region);
-        if (uva) subParts.push(uva);
-        if (cosecha) subParts.push(cosecha);
+        if (v["Productor"]) subParts.push(norm(v["Productor"]));
+        if (v["Región"]) subParts.push(norm(v["Región"]));
+        if (v["Uva"]) subParts.push(norm(v["Uva"]));
+        if (v["Cosecha"]) subParts.push(norm(v["Cosecha"]));
 
         var precioBot = toMoney(v["Precio botella"]);
         var precioCopa = toMoney(v["Precio copa"]);
@@ -171,15 +197,17 @@ function main(){
           nombre: norm(v["Vino"]) || "(Sin nombre)",
           sub: subParts.join(" · "),
           precio: precio,
-          nota: nota
+          nota: norm(v["Nota corta"])
         });
       }
 
-      // Convertir a sections para render
+      // Sections
       var sections = [];
       for (var ci = 0; ci < cats.length; ci++){
-        var cName = cats[ci];
-        sections.push({ categoria: cName, items: catItems[cName] });
+        sections.push({
+          categoria: cats[ci],
+          items: catItems[cats[ci]]
+        });
       }
 
       render(sections);
@@ -189,8 +217,8 @@ function main(){
     })
     .catch(function(err){
       console.error(err);
-      var root = document.getElementById("carta");
-      root.innerHTML = '<div class="loading">No se pudo cargar la planilla.</div>';
+      document.getElementById("carta").innerHTML =
+        '<div class="loading">No se pudo cargar la planilla.</div>';
       meta.textContent = "Error de carga";
     });
 }
