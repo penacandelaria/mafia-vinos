@@ -110,7 +110,7 @@ body {
 /* RÓTULO PRECIOS */
 .section__prices {
   font-family: "bebas-neue-pro-semiexpanded", sans-serif;
-  font-weight: 500;
+  font-weight: 300;
   font-style: normal;
   font-size: 16px;
   letter-spacing: 0.10em;
@@ -147,10 +147,10 @@ body {
 /* PRECIO VINO */
 .price {
   font-family: "bebas-neue-pro", sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   font-style: normal;
   font-size: 24px;
-  letter-spacing: 0.024em;
+  letter-spacing: 0.022em;
   white-space: nowrap;
 }
 
