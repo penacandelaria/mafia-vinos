@@ -31,7 +31,7 @@ body {
 .top {
   position: sticky;
   top: 0;
-  background: rgba(255, 255, 255, 0.92);
+  background: #fff9f3;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #e6e6e6;
 }
