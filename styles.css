@@ -33,7 +33,7 @@ body {
   top: 0;
   background: #fff9f3;
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid #7b7761;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .top__inner {
@@ -123,7 +123,7 @@ body {
 /* ITEM */
 .item {
   padding: 12px 0;
-  border-top: 1px solid #7b7761;
+  border-top: 1px solid #e6e6e6;
 }
 
 /* ROW */
@@ -181,7 +181,7 @@ body {
 
 /* FOOTER */
 .foot {
-  border-top: 1px solid #7b7761;
+  border-top: 1px solid #e6e6e6;
   padding: 18px 0;
 }
 
